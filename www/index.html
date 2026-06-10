@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle ESP32</title>
+
+    <!-- Ionic -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"/>
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <ion-app>
+
+        <ion-content class="telaMain">
+
+            <br><br><br>
+
+            <!-- Nome -->
+            <ion-item>
+                <ion-label position="stacked">
+                    Nome
+                </ion-label>
+
+                <ion-input
+                    id="nome"
+                    type="text">
+                </ion-input>
+            </ion-item>
+
+            <!-- Grau -->
+            <ion-item>
+                <ion-label position="stacked">
+                    Grau (Ângulo)
+                </ion-label>
+
+                <ion-input
+                    id="grau"
+                    type="number"
+                    min="0"
+                    max="180">
+                </ion-input>
+            </ion-item>
+
+            <!-- Botão Enviar -->
+            <ion-button
+                onclick="enviar()"
+                expand="block"
+                class="ion-margin-top">
+
+                ENVIAR
+
+            </ion-button>
+
+            <br>
+
+            <!-- Temperatura -->
+            <ion-item>
+                <ion-label position="stacked">
+                    Temperatura (°C)
+                </ion-label>
+
+                <ion-input
+                    id="temperatura"
+                    type="number"
+                    readonly>
+                </ion-input>
+            </ion-item>
+
+            <!-- Umidade -->
+            <ion-item>
+                <ion-label position="stacked">
+                    Umidade (%)
+                </ion-label>
+
+                <ion-input
+                    id="umidade"
+                    type="number"
+                    readonly>
+                </ion-input>
+            </ion-item>
+
+            <!-- Botão Ler Sensores -->
+            <ion-button
+                onclick="lerSensores()"
+                expand="block"
+                class="ion-margin-top">
+
+                LER SENSORES
+
+            </ion-button>
+
+            <br>
+
+            <!-- Botão Salvar -->
+            <ion-button
+                onclick="salvar()"
+                expand="block"
+                class="ion-margin-top">
+
+                SALVAR
+
+            </ion-button>
+
+        </ion-content>
+
+    </ion-app>
+
+    <!-- MQTT -->
+    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+
+    <!-- Script Principal -->
+    <script src="script.js"></script>
+
+</body>
+</html>
